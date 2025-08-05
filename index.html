@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>byte & Handwerk | Ihre App für Kundenbindung & digitale Pflicht</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; color: #111827; }
+        .bg-primary-green { background-color: #10B981; }
+        .text-primary-green { color: #10B981; }
+        .bg-secondary-blue { background-color: #3B82F6; }
+        .text-secondary-blue { color: #3B82F6; }
+        .bg-accent-yellow { background-color: #FBBF24; }
+        .text-accent-yellow { color: #FBBF24; }
+        .bg-neutral-lightgray { background-color: #F3F4F6; }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeInScale { animation: fadeInScale 1s ease-out forwards; }
+        .card-hover-effect:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-neutral-lightgray">
+
+    <header class="bg-white shadow-lg py-4 px-6 md:px-12 fixed w-full z-50 rounded-b-xl">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="https://placehold.co/150x50/F3F4F6/111827?text=byte%20%26%20Handwerk%20Logo"
+                     onerror="this.onerror=null;this.src='https://storage.googleapis.com/gemini-generated-images-prod/images/ChatGPT%20Image%2021.%20Juli%202025,%2014_28_54.jpg-bc91bde3-59bd-42bc-8234-8673e6ff4b41'"
+                     alt="byte & Handwerk Logo" class="h-10 md:h-12 w-auto rounded-md">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#ihr-lotse" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Ihr Lotse</a>
+                <a href="#loesungen" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Lösungen</a>
+                <a href="#digital-check" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Digital-Check</a>
+                <a href="#kontakt" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Kontakt</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-6">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 focus:outline-none"><i class="fas fa-times text-3xl"></i></button>
+            <a href="#ihr-lotse" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Ihr Lotse</a>
+            <a href="#loesungen" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Lösungen</a>
+            <a href="#digital-check" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Digital-Check</a>
+            <a href="#kontakt" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-secondary-blue text-white py-24 md:py-32 flex items-center justify-center min-h-screen-75 rounded-b-3xl shadow-xl overflow-hidden relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-secondary-blue to-blue-700 opacity-90"></div>
+            <div class="container mx-auto text-center px-6 relative z-10 animate-fadeInScale">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                    Digital. Regional. Handgemacht.
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+                    Die App für Ihr Handwerk: Wir verbinden traditionelle Werte mit moderner Technik, damit Sie für die Zukunft bestens aufgestellt sind.
+                </p>
+                <a href="#digital-check" class="bg-primary-green text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-accent-yellow transition duration-300 transform hover:scale-105 shadow-lg">
+                    Wie fit ist Ihr Betrieb? Jetzt testen!
+                </a>
+            </div>
+        </section>
+
+        <section id="ihr-lotse" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">Ihr Lotse durch den digitalen Dschungel.</h2>
+                    <p class="text-xl text-gray-700 mb-10">
+                        Als gelernter Bäcker und App-Entwickler kenne ich die Backstub' und das Backend. Ich spreche Ihre Sprache – und die der Technik.
+                    </p>
+                </div>
+                <div class="flex flex-wrap md:flex-nowrap items-center gap-12 max-w-6xl mx-auto">
+                    <div class="w-full md:w-1/2 text-lg leading-relaxed text-gray-600">
+                        <p class="mb-6">Bei byte & Handwerk bekommen Sie keine Lösung von der Stange. Sie bekommen einen Partner, der versteht, dass Ihre Zeit kostbar ist und Technik einfach funktionieren muss.</p>
+                        <p class="mb-6 font-bold text-gray-800">Und der weiß, was gesetzlich auf Sie zukommt: Ab Juni 2025 wird Barrierefreiheit für Apps und Webseiten zur Pflicht (BFSG) – auch für Ihr Handwerk.</p>
+                        <p>Wir sorgen dafür, dass Sie nicht nur modern, sondern auch rechtssicher aufgestellt sind. Ohne Stress, ohne Fachchinesisch.</p>
+                        <p class="mt-6 italic font-semibold text-primary-green">
+                           „Ich verkauf dir keine App, wenn du sie nicht brauchst. Aber ich sag dir, wann sie zur Pflicht wird.“
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                         <img src="https://placehold.co/500x500/F3F4F6/111827?text=Dominik+(Gründer)"
+                             onerror="this.onerror=null;this.src='https://storage.googleapis.com/gemini-generated-images-prod/images/ChatGPT%20Image%2021.%20Juli%202025,%2014_28_54.jpg-bc91bde3-59bd-42bc-8234-8673e6ff4b41'"
+                             alt="Gründer von byte & Handwerk" class="rounded-xl shadow-lg w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loesungen" class="py-16 md:py-24 bg-neutral-lightgray">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-4 text-gray-800">Ihre digitale Werkzeugkiste.</h2>
+                <p class="text-xl text-center text-gray-700 mb-12 max-w-3xl mx-auto">
+                    Modular & praxisnah. Sie wählen nur die Bausteine, die Ihr Geschäft wirklich voranbringen.
+                </p>
+                
+                <h3 class="text-3xl font-semibold mb-8 text-secondary-blue border-b-2 border-secondary-blue pb-2">1. Kunden gewinnen & binden</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-stamp"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Digitale Stempelkarten</h4>
+                        <p class="text-gray-600">Belohnen Sie Treue und machen Sie aus Laufkunden Stammkunden.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-bell"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Push-Nachrichten</h4>
+                        <p class="text-gray-600">Informieren Sie über Tagesangebote oder Restbrote – direkt aufs Handy.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-qrcode"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">QR-Code-Marketing</h4>
+                        <p class="text-gray-600">Führen Sie Kunden von der Brottüte direkt in Ihre App.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-3xl font-semibold mb-8 text-secondary-blue border-b-2 border-secondary-blue pb-2">2. Abläufe optimieren & planen</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                     <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-calendar-check"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Vorbestell-System</h4>
+                        <p class="text-gray-600">Entzerren Sie Stoßzeiten und steigern Sie Ihren Umsatz durch planbare Bestellungen.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-clipboard-list"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Digitale Wochenpläne</h4>
+                        <p class="text-gray-600">Zeigen Sie transparent, was es wann gibt. Das schafft Klarheit und Appetit.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-tags"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Filial- & Franchise-System</h4>
+                        <p class="text-gray-600">Einheitlicher Auftritt für alle Standorte, zentral gesteuert.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-3xl font-semibold mb-8 text-secondary-blue border-b-2 border-secondary-blue pb-2">3. Sicher & zukunftsorientiert aufstellen</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-wheelchair"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Gesetzeskonforme Barrierefreiheit</h4>
+                        <p class="text-gray-600">Erfüllen Sie die gesetzliche Pflicht (BFSG) und machen Sie Ihre App für alle nutzbar.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-cloud"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Hosting & Wartung</h4>
+                        <p class="text-gray-600">Das Rundum-sorglos-Technikpaket. Wir kümmern uns, Sie kümmern sich ums Handwerk.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
+                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h4 class="text-xl font-semibold mb-2">Fördermittel-Beratung</h4>
+                        <p class="text-gray-600">Wir helfen Ihnen, sich Zuschüsse wie die Digitalisierungsprämie zu sichern.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="digital-check" class="py-16 md:py-24 bg-secondary-blue text-white rounded-t-3xl shadow-xl">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4">Wie digital ist Ihr Handwerk wirklich?</h2>
+                <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">
+                    Finden Sie es in 3 Minuten heraus. Unser kostenloser Digital-Check analysiert Ihren Betrieb und gibt Ihnen eine ehrliche Ersteinschätzung – basierend auf Ihren Antworten.
+                </p>
+                
+                <div class="max-w-4xl mx-auto bg-white text-gray-800 p-8 rounded-xl shadow-lg text-left mb-10">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Was Sie erwartet:</h3>
+                     <ul class="list-none space-y-3">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span>**Persönliche Analyse:** Keine Standard-Antworten, sondern auf Ihr Profil zugeschnittene Erkenntnisse.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span>**Konkrete Potenziale:** Wir zeigen Ihnen die 1-2 größten Hebel, die Sie sofort umsetzen könnten.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span>**100% unverbindlich:** Sie erhalten wertvolles Wissen, keine Verpflichtung.</span></li>
+                    </ul>
+                </div>
+
+                <a href="[HIER_DEIN_TALLY_QUIZ_LINK_EINFÜGEN]" target="_blank" class="bg-primary-green text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-accent-yellow transition duration-300 transform hover:scale-110 shadow-lg">
+                    Jetzt kostenlosen Digital-Check starten!
+                </a>
+                <p class="mt-6 text-white opacity-80">... und entdecken Sie ungenutztes Potenzial.</p>
+            </div>
+        </section>
+
+
+        <section id="kontakt" class="py-16 md:py-24 bg-white rounded-b-3xl">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Direkter Draht statt Warteschleife?</h2>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Wenn Sie das Quiz überspringen und direkt mit mir über Ihr Anliegen sprechen möchten, nutzen Sie einfach das Kontaktformular.
+                    </p>
+                    <form class="space-y-6 text-left">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-green" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-Mail</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-green" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Ihre Nachricht</label>
+                            <textarea id="message" name="message" rows="4" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-green" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-primary-green text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-accent-yellow transition duration-300 transform hover:scale-105 shadow-lg">
+                                Nachricht senden
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 rounded-t-xl shadow-inner">
+        <div class="container mx-auto text-center text-sm">
+            <p>&copy; 2025 byte & Handwerk. Alle Rechte vorbehalten.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-primary-green transition duration-300">Impressum</a>
+                <a href="#" class="hover:text-primary-green transition duration-300">Datenschutz</a>
+            </div>
+            <div class="mt-4 text-lg">
+                <a href="https://www.linkedin.com/company/byte-und-handwerk" target="_blank" class="text-white hover:text-primary-green mx-2 transition duration-300"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); });
+        closeMobileMenuButton.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
+    </script>
+</body>
+</html>
