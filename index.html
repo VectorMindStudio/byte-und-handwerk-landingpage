@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App für Hofladen, Bäcker & Handwerk in Mannheim, RLP & Hessen</title>
-    <meta name="description" content="Ihre App für Hofläden, Direktvermarkter, Bäckereien und Metzgereien in Mannheim, Rheinland-Pfalz & Hessen. Stärken Sie Ihre Kundenbindung mit digitalen Stempelkarten und Click & Collect. Rechtssicher nach BFSG.">
+    <title>Ihre eigene App für Hofladen, Bäcker & Metzgerei | byte & Handwerk</title>
+    <meta name="description" content="Ihre eigene App für Hofläden, Bäckereien und Metzgereien in Mannheim, RLP & Hessen. Bringen Sie Ihre Angebote direkt aufs Handy Ihrer Kunden und binden Sie sie mit einer digitalen Stempelkarte.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -15,7 +16,6 @@
         .bg-secondary-blue { background-color: #3B82F6; }
         .text-secondary-blue { color: #3B82F6; }
         .bg-accent-yellow { background-color: #FBBF24; }
-        .text-accent-yellow { color: #FBBF24; }
         .bg-neutral-lightgray { background-color: #F3F4F6; }
         @keyframes fadeInScale {
             from { opacity: 0; transform: scale(0.95); }
@@ -26,6 +26,14 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px) scale(1.03);
         }
+        /* Styles for the legal modal */
+        .modal-content h1 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
+        .modal-content h2 { font-size: 1.25rem; font-weight: bold; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .modal-content h3 { font-size: 1.1rem; font-weight: bold; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .modal-content p { margin-bottom: 1rem; }
+        .modal-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+        .modal-content a { color: #3B82F6; text-decoration: underline; }
+        .modal-content .generator_user_input { background-color: #f3f4f6; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid #e5e7eb; }
     </style>
 </head>
 <body class="bg-neutral-lightgray">
@@ -33,13 +41,12 @@
     <header class="bg-white shadow-lg py-4 px-6 md:px-12 fixed w-full z-50 rounded-b-xl">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center">
-                <img src="https://placehold.co/150x50/F3F4F6/111827?text=byte%20%26%20Handwerk%20"
-                     onerror="this.onerror=null;this.src='https://storage.googleapis.com/gemini-generated-images-prod/images/ChatGPT%20Image%2021.%20Juli%202025,%2014_28_54.jpg-bc91bde3-59bd-42bc-8234-8673e6ff4b41'"
-                     alt="Logo von byte & Handwerk - App Entwicklung für Hofladen und Handwerk" class="h-10 md:h-12 w-auto rounded-md">
+                <img src="https://raw.githubusercontent.com/VectorMindStudio/byte-und-handwerk-landingpage/main/byte%26Handwerk_logo.png"
+                     alt="Logo von byte & Handwerk - App Entwicklung für Hofladen und Handwerk" class="h-10 md:h-12 w-auto">
             </a>
             <div class="hidden md:flex space-x-8">
+                <a href="#so-funktionierts" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">So funktioniert's</a>
                 <a href="#ihr-lotse" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Ihr Lotse</a>
-                <a href="#loesungen" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Lösungen</a>
                 <a href="#digital-check" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Digital-Check</a>
                 <a href="#kontakt" class="text-gray-700 hover:text-primary-green font-medium transition duration-300">Kontakt</a>
             </div>
@@ -49,8 +56,8 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-6">
             <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 focus:outline-none"><i class="fas fa-times text-3xl"></i></button>
+            <a href="#so-funktionierts" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">So funktioniert's</a>
             <a href="#ihr-lotse" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Ihr Lotse</a>
-            <a href="#loesungen" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Lösungen</a>
             <a href="#digital-check" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Digital-Check</a>
             <a href="#kontakt" class="text-2xl text-gray-700" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontakt</a>
         </div>
@@ -61,135 +68,113 @@
             <div class="absolute inset-0 bg-gradient-to-br from-secondary-blue to-blue-700 opacity-90"></div>
             <div class="container mx-auto text-center px-6 relative z-10 animate-fadeInScale">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
-                    Ihre App für Hofladen, Bäckerei & Direktvermarkter
+                    Ihr digitaler Laden in der Hosentasche Ihrer Kunden.
                 </h1>
                 <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
-                    Wir verbinden traditionelles Handwerk mit moderner Technik: Digitale Lösungen für Ihren Betrieb in Mannheim, Rheinland-Pfalz und Hessen.
+                    Wir bauen für Ihren Betrieb eine eigene App, mit der Sie Angebote direkt aufs Handy Ihrer Kunden schicken, Bestellungen annehmen und Treue belohnen.
                 </p>
-                <!-- Responsive Design Fix: Button-Padding und Textgröße für mobile Geräte angepasst, um Umbruch zu verhindern. -->
+                <p class="mb-4 text-lg text-white opacity-90">Herausfinden wie digital mein Betrieb ist?</p>
                 <a href="#digital-check" class="bg-primary-green text-white font-bold py-3 px-6 md:py-4 md:px-10 rounded-full text-lg md:text-xl hover:bg-accent-yellow transition duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap">
-                    Wie fit ist Ihr Betrieb? Jetzt testen!
+                   Jetzt Digital-Stand meines Betriebs prüfen
                 </a>
             </div>
         </section>
 
-        <section id="ihr-lotse" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="text-4xl font-bold mb-4 text-gray-800">Ihr Lotse durch den digitalen Dschungel.</h2>
-                    <p class="text-xl text-gray-700 mb-10">
-                        Als gelernter Bäcker und App-Entwickler aus der Region Mannheim spreche ich Ihre Sprache – und die der Technik.
-                    </p>
-                </div>
-                <div class="flex flex-wrap md:flex-nowrap items-center gap-12 max-w-6xl mx-auto">
-                    <div class="w-full md:w-1/2 text-lg leading-relaxed text-gray-600">
-                        <p class="mb-6">Bei byte & Handwerk bekommen Sie keine App von der Stange. Sie bekommen einen Partner, der versteht, wie Ihre Bäckerei, Metzgerei oder Ihr Hofladen tickt und dass Technik einfach funktionieren muss.</p>
-                        <p class="mb-6 font-bold text-gray-800">Wussten Sie schon? Seit Juni 2025 ist Barrierefreiheit für Apps und Webseiten Pflicht (Barrierefreiheitsstärkungsgesetz, BFSG). Das betrifft auch Direktvermarkter und das Lebensmittelhandwerk.</p>
-                        <p>Wir sorgen dafür, dass Sie nicht nur modern, sondern auch rechtssicher aufgestellt sind. Ohne Stress, ohne Fachchinesisch.</p>
-                        <p class="mt-6 italic font-semibold text-primary-green">
-                           „Ich verkauf dir keine App, wenn du sie nicht brauchst. Aber ich sag dir, wann sie zur Pflicht wird.“
-                        </p>
+        <section id="so-funktionierts" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">In 3 Schritten zu Ihrem digitalen Erfolg.</h2>
+                <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                    Kein Technik-Kauderwelsch, keine komplizierten Prozesse. Wir machen es Ihnen so einfach wie möglich.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-neutral-lightgray p-8 rounded-xl border">
+                        <div class="text-secondary-blue text-5xl font-bold mb-4">1.</div>
+                        <h3 class="text-2xl font-semibold mb-2">Wir bauen Ihre App</h3>
+                        <p class="text-gray-600">Wir erstellen Ihre persönliche App mit Ihrem Logo und Ihren Farben und veröffentlichen sie im Apple App Store und Google Play Store.</p>
                     </div>
-                    <div class="w-full md:w-1/2">
-                         <img src="https://raw.githubusercontent.com/VectorMindStudio/byte-und-handwerk-landingpage/main/Dominik%20Baki.png"
-                             onerror="this.onerror=null;this.src='https://storage.googleapis.com/gemini-generated-images-prod/images/ChatGPT%20Image%2021.%20Juli%202025,%2014_28_54.jpg-bc91bde3-59bd-42bc-8234-8673e6ff4b41'"
-                             alt="Dominik Baki, Gründer von byte & Handwerk und Entwickler von Apps für Hofläden und Lebensmittelhandwerk" class="rounded-xl shadow-lg w-full h-auto">
+                    <div class="bg-neutral-lightgray p-8 rounded-xl border">
+                        <div class="text-secondary-blue text-5xl font-bold mb-4">2.</div>
+                        <h3 class="text-2xl font-semibold mb-2">Ihre Kunden laden sie herunter</h3>
+                        <p class="text-gray-600">Mit einfachen Aufstellern und QR-Codes im Laden laden Ihre Kunden die App herunter und haben so Ihren direkten Draht zu Ihnen.</p>
+                    </div>
+                    <div class="bg-neutral-lightgray p-8 rounded-xl border">
+                        <div class="text-secondary-blue text-5xl font-bold mb-4">3.</div>
+                        <h3 class="text-2xl font-semibold mb-2">Sie sparen Zeit & verdienen mehr</h3>
+                        <p class="text-gray-600">Sie nehmen Bestellungen digital an, schicken Angebote per Knopfdruck und binden Kunden mit einer digitalen Stempelkarte, die nie verloren geht.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="loesungen" class="py-16 md:py-24 bg-neutral-lightgray">
+        <section id="ihr-lotse" class="py-16 md:py-24 bg-neutral-lightgray">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-4 text-gray-800">Die digitale Werkzeugkiste für Ihr Handwerk.</h2>
-                <p class="text-xl text-center text-gray-700 mb-12 max-w-3xl mx-auto">
-                    Unsere App-Module für Hofläden, Bäckereien, Metzgereien und Unverpacktläden. Sie wählen nur, was Sie wirklich brauchen.
-                </p>
-                
-                <h3 class="text-3xl font-semibold mb-8 text-secondary-blue border-b-2 border-secondary-blue pb-2">1. Kunden gewinnen & binden</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-stamp"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Digitale Stempelkarten</h4>
-                        <p class="text-gray-600">Belohnen Sie die Treue Ihrer Kunden und machen Sie aus Laufkunden Stammkunden – ideal für Hofladen, Bäcker & Co.</p>
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">Warum unsere Lösungen einfach funktionieren.</h2>
+                    <h3 class="text-xl text-gray-700 mb-10">
+                        Weil sie mit dem Herzen eines Handwerkers, dem Kopf eines Wissenschaftlers und der Stimme eines Partners entwickelt werden.
+                    </h3>
+                </div>
+                <div class="flex flex-wrap md:flex-nowrap items-center gap-12 max-w-6xl mx-auto">
+                    <div class="w-full md:w-1/2 text-lg leading-relaxed text-gray-600">
+                        <p class="mb-6">Meine Reise begann im Handwerk, mit einer klassischen Bäckerlehre. Danach habe ich 17 Jahre lang als Assistent der Biotechnologie gelernt, mit höchster Präzision zu arbeiten. Im Vertrieb habe ich anschließend verstanden, wie wichtig es ist, Kunden wirklich zuzuhören.</p>
+                        <p class="mb-6 font-bold text-gray-800">Heute fließt all das in `byte & Handwerk` zusammen. Das Ergebnis sind digitale Werkzeuge, die nicht nur kreativ sind, sondern vor allem zuverlässig, stabil und durchdacht – gebaut für den harten Alltag in Ihrem Betrieb.</p>
+                        <p class="mt-6 italic font-semibold text-primary-green text-xl">
+                           „Isch babbel dir nix vor. Isch mach's äfach. Fer disch un doi G'schäft, alla hopp!“
+                        </p>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-bell"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Push-Nachrichten</h4>
-                        <p class="text-gray-600">Informieren Sie über neue Ernten, Tagesangebote oder Restbrote – direkt auf das Handy Ihrer Kunden.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-qrcode"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">QR-Code-Marketing</h4>
-                        <p class="text-gray-600">Führen Sie Kunden von der Eier-Schachtel oder Brottüte direkt in Ihre App.</p>
+                    <div class="w-full md:w-1/2">
+                         <img src="https://raw.githubusercontent.com/VectorMindStudio/byte-und-handwerk-landingpage/main/Dominik%20Baki.png"
+                             alt="Dominik, Gründer von byte & Handwerk und Entwickler von Apps für Hofläden und Lebensmittelhandwerk" class="rounded-xl shadow-lg w-full h-auto">
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <h3 class="text-3xl font-semibold mb-8 text-secondary-blue border-b-2 border-secondary-blue pb-2">2. Abläufe optimieren & planen</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                     <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-calendar-check"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Vorbestell-System</h4>
-                        <p class="text-gray-600">Entzerren Sie Stoßzeiten und steigern Sie Ihren Umsatz durch planbare Bestellungen.</p>
+        <section id="vision" class="py-16 md:py-24 bg-white">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Stellen Sie sich vor...</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg">
+                    <div class="flex items-start text-left">
+                        <i class="fas fa-check-circle text-primary-green mr-4 mt-1 text-2xl"></i>
+                        <p class="text-gray-600">...Ihre Theke ist durch digitale Vorbestellungen schon voll, bevor die ersten Kunden den Laden betreten.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-clipboard-list"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Digitale Wochenpläne</h4>
-                        <p class="text-gray-600">Zeigen Sie transparent, was es wann gibt. Das schafft Klarheit und Appetit.</p>
+                    <div class="flex items-start text-left">
+                         <i class="fas fa-check-circle text-primary-green mr-4 mt-1 text-2xl"></i>
+                        <p class="text-gray-600">...Sie können an einem regnerischen Tag per Knopfdruck ein Kuchen-Angebot an alle Ihre Stammkunden schicken und den Umsatz retten.</p>
                     </div>
-                     <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-tags"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Filial- & Franchise-System</h4>
-                        <p class="text-gray-600">Einheitlicher Auftritt für alle Standorte, zentral gesteuert.</p>
-                    </div>
-                </div>
-
-                <h3 class="text-3xl font-semibold mb-8 text-secondary-blue border-b-2 border-secondary-blue pb-2">3. Sicher & zukunftsorientiert aufstellen</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-wheelchair"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Gesetzeskonforme Barrierefreiheit</h4>
-                        <p class="text-gray-600">Erfüllen Sie die gesetzliche Pflicht (BFSG) und machen Sie Ihre App für alle nutzbar.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-cloud"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Hosting & Wartung</h4>
-                        <p class="text-gray-600">Das Rundum-sorglos-Technikpaket. Wir kümmern uns, Sie kümmern sich ums Handwerk.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md border transition duration-300 card-hover-effect">
-                        <div class="text-primary-green text-5xl mb-6"><i class="fas fa-hand-holding-usd"></i></div>
-                        <h4 class="text-xl font-semibold mb-2">Fördermittel-Beratung</h4>
-                        <p class="text-gray-600">Wir helfen Ihnen, sich Zuschüsse wie die Digitalisierungsprämie zu sichern.</p>
+                    <div class="flex items-start text-left">
+                         <i class="fas fa-check-circle text-primary-green mr-4 mt-1 text-2xl"></i>
+                        <p class="text-gray-600">...Sie haben endlich wieder mehr Zeit für das, was Sie lieben: Ihr Handwerk.</p>
                     </div>
                 </div>
+                 <p class="mt-12 text-xl text-gray-800 font-semibold">Das ist kein Traum. Das ist der Plan.</p>
             </div>
         </section>
 
         <section id="digital-check" class="py-16 md:py-24 bg-secondary-blue text-white rounded-t-3xl shadow-xl">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-4">Wie digital ist Ihr Handwerk wirklich?</h2>
+                <h2 class="text-4xl font-bold mb-4">Was steht der Zukunft Ihres Betriebs im Weg?</h2>
                 <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-                    Finden Sie es in </i><span class="font-bold">3 Minuten</span> heraus. Unser kostenloser Digital-Check analysiert Ihren Betrieb und gibt Ihnen eine ehrliche Ersteinschätzung – basierend auf Ihren Antworten.
+                    Finden Sie in 3 Minuten den größten Engpass in Ihrem Betrieb. Unser kostenloser Check gibt Ihnen eine klare, ehrliche Analyse und den direktesten Weg zur Lösung.
                 </p>
                 
                 <div class="max-w-4xl mx-auto bg-white text-gray-800 p-8 rounded-xl shadow-lg text-left mb-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-center">Was Sie erwartet:</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Das Ergebnis: Ihre persönliche Empfehlung</h3>
                      <ul class="list-none space-y-3">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span class="font-bold">Persönliche Analyse:</span> Keine Standard-Antworten, sondern auf Ihr Profil zugeschnittene Erkenntnisse.</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span class="font-bold">Konkrete Potenziale:</span> Wir zeigen Ihnen die 1-2 größten Hebel, die Sie sofort umsetzen könnten.</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span class="font-bold">100% unverbindlich:</span> Sie erhalten wertvolles Wissen, keine Verpflichtung.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span><strong>Klare Analyse:</strong> Wir zeigen Ihnen den einen Bereich auf, der Ihnen aktuell am meisten Zeit oder Geld kostet.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span><strong>Konkreter nächster Schritt:</strong> Sie erhalten eine auf Ihren <strong>Betrieb</strong> zugeschnittene Empfehlung für die 1-2 wirkungsvollsten nächsten Schritte.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary-green mr-3 mt-1"></i><span><strong>100% unverbindlich:</strong> Sie gewinnen Klarheit, ohne jede Verpflichtung.</span></li>
                     </ul>
                 </div>
 
                 <a href="[HIER_DEIN_TALLY_QUIZ_LINK_EINFÜGEN]" target="_blank" class="bg-primary-green text-white font-bold py-3 px-6 md:py-4 md:px-10 rounded-full text-lg md:text-xl hover:bg-accent-yellow transition duration-300 transform hover:scale-110 shadow-lg whitespace-nowrap">
-                    Kostenlosen Digital-Check starten!
+                    Meinen größten Engpass finden
                 </a>
-                <p class="mt-6 text-white opacity-80">... und ungenutztes Potenzial entdecken.</p>
+                <p class="mt-6 text-white opacity-80">... und meinen Betrieb zukunftssicher machen.</p>
             </div>
         </section>
 
-
-        <section id="kontakt" class="py-16 md:py-24 bg-white rounded-b-3xl">
+        <section id="kontakt" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="max-w-2xl mx-auto text-center">
                     <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Direkter Draht statt Warteschleife?</h2>
@@ -218,21 +203,36 @@
                 </div>
             </div>
         </section>
+
+        <section id="mission" class="py-16 md:py-24 bg-neutral-lightgray">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Eine Partnerschaft, die weiter geht.</h2>
+                <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Meine Arbeit hat ein doppeltes Ziel. Ich will nicht nur erfolgreiche digitale Produkte für das Handwerk schaffen. Als Mensch und Unternehmer sehe ich mich auch in der gesellschaftlichen Verantwortung.
+                </p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Deshalb engagiere ich mich mit meinem sozialen Herzensprojekt persönlich gegen die Einsamkeit älterer Menschen in unserer Region. Ihre Entscheidung für eine Zusammenarbeit mit mir ist also nicht nur eine Investition in die Zukunft Ihres Betriebs, sondern auch ein direkter Beitrag zum sozialen Zusammenhalt.
+                </p>
+                 <p class="mt-6 italic font-semibold text-primary-green text-xl">
+                    <span class="italic"> „Weil Handwerk un Häämat z'ammeghere, gell.“</span>
+                </p>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 rounded-t-xl shadow-inner">
         <div class="container mx-auto text-center text-sm">
             <div class="mb-4">
                 <p class="font-bold">byte & Handwerk</p>
-                <p>Dominik Baki</p>
-                <p>68305 Mannheim</p>
-                <p>Telefon: 0621 437 550 44</p>
-                <p class="mt-2 text-gray-400">Service-Region: Baden-Württemberg, Rheinland-Pfalz, Hessen</p>
+                <p>Inhaber: Dominik Baki</p>
+                <p>Alsenweg 64, 68305 Mannheim</p>
+                <p>Telefon: 0621 437 550 44 </p>
+                <p class="mt-2 text-gray-400">Kern-Region: Baden-Württemberg, Rheinland-Pfalz & Hessen. Projekte in weiteren Bundesländern auf Anfrage.</p>
             </div>
             <p>&copy; 2025 byte & Handwerk. Alle Rechte vorbehalten.</p>
             <div class="mt-4 space-x-4">
-                <a href="#" class="hover:text-primary-green transition duration-300">Impressum</a>
-                <a href="#" class="hover:text-primary-green transition duration-300">Datenschutz</a>
+                <button id="impressum-toggle" class="hover:text-primary-green transition duration-300">Impressum</button>
+                <button id="datenschutz-toggle" class="hover:text-primary-green transition duration-300">Datenschutz</button>
             </div>
             <div class="mt-4 text-lg">
                 <a href="https://www.linkedin.com/company/byteundhandwerk" target="_blank" class="text-white hover:text-primary-green mx-2 transition duration-300"><i class="fab fa-linkedin"></i></a>
@@ -240,7 +240,133 @@
         </div>
     </footer>
 
+    <!-- Impressum Modal -->
+    <div id="impressum-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center p-4 z-[100]">
+        <div class="bg-white text-gray-800 rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative modal-content">
+            <button id="impressum-close" class="absolute top-4 right-4 text-2xl font-bold text-gray-500 hover:text-gray-800">&times;</button>
+            <h1>Impressum</h1>
+            <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+            <div class="generator_user_input">
+                <p class="mb-0"><strong>Dominik Baki</strong><br>byte &amp; Handwerk<br>Alsenweg 64<br>68305 Mannheim</p>
+            </div>
+            <h2>Kontakt</h2>
+            <div class="generator_user_input">
+                <p class="mb-0"><strong>Telefon:</strong> 0621 437 550 44<br><strong>E-Mail:</strong> info@byteundhandwerk.de</p>
+            </div>
+            <h2>Hinweise zur Website</h2>
+            <h3>Urheberrechtliche Hinweise</h3>
+            <p>Logo & Corporate Design: Dominik Baki<br>Verwendete Icons: Font Awesome (SIL Open Font License 1.1)</p>
+            <h3>Verantwortlich für journalistisch-redaktionelle Inhalte</h3>
+            <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>Dominik Baki<br>Alsenweg 64<br>68305 Mannheim</p>
+            <p class="text-xs italic mt-6"><em>Dieses Impressum wurde mit Hilfe des Impressums-Generators der activeMind AG erstellt.</em></p>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div id="datenschutz-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center p-4 z-[100]">
+        <div class="bg-white text-gray-800 rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative modal-content">
+            <button id="datenschutz-close" class="absolute top-4 right-4 text-2xl font-bold text-gray-500 hover:text-gray-800">&times;</button>
+            <h1>Datenschutzhinweise</h1>
+            <h2>Verantwortlicher</h2>
+            <p>Verantwortlicher im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutz-Grundverordnung (DSGVO), ist:</p>
+            <div class='generator_user_input'>
+                byte & Handwerk<br />
+                Inhaber: Dominik Baki<br />
+                Alsenweg 64<br />
+                68305 Mannheim<br />
+                Telefon: 0621 437 550 44<br />
+                E-Mail: info@byteundhandwerk.de
+            </div>
+            <h2>Ihre Betroffenenrechte</h2>
+            <p>Unter den angegebenen Kontaktdaten können Sie gemäß EU-Datenschutz-Grundverordnung (DSGVO) jederzeit folgende Rechte ausüben:</p>
+            <ul>
+                <li>Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung (Art. 15 DSGVO),</li>
+                <li>Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO),</li>
+                <li>Löschung Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO),</li>
+                <li>Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund gesetzlicher Pflichten noch nicht löschen dürfen (Art. 18 DSGVO),</li>
+                <li>Widerspruch gegen die Verarbeitung Ihrer Daten bei uns (Art. 21 DSGVO) und</li>
+                <li>Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt haben oder einen Vertrag mit uns abgeschlossen haben (Art. 20 DSGVO).</li>
+            </ul>
+            <p>Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+            <p>Sie können sich jederzeit mit einer Beschwerde an eine Aufsichtsbehörde wenden, z. B. an die zuständige Aufsichtsbehörde des Bundeslands Ihres Wohnsitzes oder an die für uns als verantwortliche Stelle zuständige Behörde.</p>
+            <p>Eine Liste der Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden Sie unter: <a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank" rel="noopener">https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html</a>.</p>
+            <h2>Verarbeitungstätigkeiten</h2>
+            <h3>Erfassung allgemeiner Informationen beim Besuch unserer Website</h3>
+            <h4>Art und Zweck der Verarbeitung</h4>
+            <p>Wenn Sie auf unsere Website zugreifen, d.h., wenn Sie sich nicht registrieren oder anderweitig Informationen übermitteln, werden automatisch Informationen allgemeiner Natur erfasst. Diese Informationen (Server-Logfiles) beinhalten etwa die Art des Webbrowsers, das verwendete Betriebssystem, den Domainnamen Ihres Internet-Service-Providers, Ihre IP-Adresse und ähnliches.</p>
+            <p>Sie werden insbesondere zu folgenden Zwecken verarbeitet:</p>
+            <ul>
+                <li>Sicherstellung eines problemlosen Verbindungsaufbaus der Website</li>
+                <li>Sicherstellung einer reibungslosen Nutzung der Website</li>
+                <li>Sicherstellung und Auswertung der Systemsicherheit und -stabilität, insbesondere zur Missbrauchserkennung</li>
+                <li>zur technisch fehlerfreien Darstellung und Optimierung der Website</li>
+            </ul>
+            <p>Wir verwenden Ihre Daten nicht, um Rückschlüsse auf Ihre Person zu ziehen. Allerdings behalten wir uns vor, die Server-Logfiles nachträglich zu überprüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.</p>
+            <h4>Rechtsgrundlage und berechtigtes Interesse</h4>
+            <p>Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website sowie der Sicherstellung der Systemsicherheit und Missbrauchserkennung.</p>
+            <h4>Empfänger</h4>
+            <p>Empfänger der Daten sind ggf. technische Dienstleister, die für den Betrieb und die Wartung unserer Webseite als Auftragsverarbeiter tätig werden.</p>
+            <h4>Speicherdauer</h4>
+            <p>Daten werden in Server-Log-Dateien in einer Form, die die Identifizierung der betroffenen Personen ermöglicht, maximal für 7 Tage gespeichert; es sei denn, dass ein sicherheitsrelevantes Ereignis auftritt (z.B. ein DDoS-Angriff).</p>
+            <p>Im Falle eines solchen Ereignisses werden Server-Log-Dateien bis zur Beseitigung und vollständigen Aufklärung des sicherheitsrelevanten Ereignisses gespeichert.</p>
+            <h4>Drittlandtransfer</h4>
+            <p>Die erhobenen Daten werden ggfs. in folgende Drittländer übertragen:</p>
+            <p class='generator_user_input'>USA</p>
+            <p>Folgende Datenschutzgarantien liegen vor:</p>
+            <p>Angemessenheitsbeschluss der EU-Kommission</p>
+            <h4>Bereitstellung vorgeschrieben oder erforderlich</h4>
+            <p>Die Bereitstellung der vorgenannten personenbezogenen Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne die IP-Adresse ist jedoch der Dienst und die Funktionsfähigkeit unserer Website nicht gewährleistet. Zudem können einzelne Dienste und Services nicht verfügbar oder eingeschränkt sein.</p>
+            <h3>Kontaktaufnahme</h3>
+            <h4>Art und Zweck der Verarbeitung</h4>
+            <p>Auf unserer Website ist ein Kontaktformular vorhanden, welches für die elektronische Kontaktaufnahme genutzt werden kann. Nimmt ein Nutzer diese Möglichkeit wahr, so werden die in der Eingabemaske eingegeben Daten an uns übermittelt und gespeichert.</p>
+            <p>Zum Zeitpunkt der Absendung der Nachricht werden zudem folgende Daten gespeichert:</p>
+            <ul>
+                <li>IP-Adresse des anfragenden Geräts</li>
+                <li>Datum und Uhrzeit der Anfrage</li>
+                <li>URL, von der die Anfrage erfolgte</li>
+            </ul>
+            <p>Eine Kontaktaufnahme ist über die bereitgestellten E-Mail-Adressen möglich. In diesem Fall werden die mit der E-Mail übermittelten personenbezogenen Daten des Nutzers gespeichert. Hierzu zählen Datum und Uhrzeit des E-Mailversands, E-Mailadresse, IP-Adressen sowie Informationen zu den an der E-Mail-Kommunikation beteiligten Servern.</p>
+            <p>Sie können Sie über die bereitgestellten Telefonnummern Kontakt zu uns aufnehmen. Hierbei erheben wir Protokolldaten, die Ihre Telefonnummer und die Dauer des Gesprächs beinhalten.</p>
+            <p>Unabhängig von der gewählten Kommunikationsart erheben wir den Inhalt Ihrer Anfrage. Ihre Daten werden zum Zweck der individuellen Kommunikation mit Ihnen gespeichert.</p>
+            <h4>Rechtsgrundlage</h4>
+            <p>Die Verarbeitung der Daten erfolgt auf der Grundlage eines berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO).</p>
+            <p>Unser berechtigtes Interesse an der Verarbeitung Ihrer Daten ist die Ermöglichung einer unkomplizierten Kontaktaufnahme.</p>
+            <p>Sofern Sie mit uns Kontakt aufnehmen, um ein Angebot zu erfragen, erfolgt die Verarbeitung der Daten zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO).</p>
+            <h4>Empfänger</h4>
+            <p>Empfänger der Daten sind ggf. technische Dienstleister, die für den Betrieb und die Wartung unserer Webseite als Auftragsverarbeiter tätig werden.</p>
+            <h4>Speicherdauer</h4>
+            <p>Daten werden spätestens nach abschließender Bearbeitung der Anfrage, spätestens jedoch nach 6 Monaten, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. nach Bearbeitung der Kontaktaufnahme gelöscht.</p>
+            <p>Sofern es zu einem Vertragsverhältnis kommt, unterliegen wir den gesetzlichen Aufbewahrungsfristen. Diese betragen grundsätzlich 6 oder 10 Jahre aus Gründen der ordnungsmäßigen Buchführung und steuerrechtlichen Anforderungen.</p>
+            <h4>Drittlandtransfer</h4>
+            <p>Die erhobenen Daten werden ggfs. in folgende Drittländer übertragen:</p>
+            <p class='generator_user_input'>USA</p>
+            <p>Folgende Datenschutzgarantien liegen vor:</p>
+            <p>Angemessenheitsbeschluss der EU-Kommission</p>
+            <h4>Bereitstellung vorgeschrieben oder erforderlich</h4>
+            <p>Die Bereitstellung Ihrer personenbezogenen Daten erfolgt freiwillig. Wir können Ihre Anfrage jedoch nur bearbeiten, sofern Sie uns die erforderlichen Daten und den Grund der Anfrage mitteilen.</p>
+            <h2>Information über Ihr Widerspruchsrecht nach Art. 21 DSGVO</h2>
+            <h3>Einzelfallbezogenes Widerspruchsrecht</h3>
+            <p>Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten, die aufgrund Art. 6 Abs. 1 lit. f DSGVO (Datenverarbeitung auf der Grundlage einer Interessenabwägung) erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmung gestütztes Profiling im Sinne von Art. 4 Nr. 4 DSGVO.</p>
+            <p>Legen Sie Widerspruch ein, werden wir Ihre personenbezogenen Daten nicht mehr verarbeiten, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
+            <h3>Empfänger eines Widerspruchs</h3>
+            <div class='generator_user_input'>
+                byte & Handwerk<br />
+                Inhaber: Dominik Baki<br />
+                Alsenweg 64<br />
+                68305 Mannheim<br />
+                E-Mail: info@byteundhandwerk.de<br />
+                Telefon: 0621 437 550 44
+            </div>
+            <h2>Änderung unserer Datenschutzerklärung</h2>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+            <h2>Fragen zum Datenschutz</h2>
+            <p>Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail an den oben genannten Verantwortlichen.</p>
+            <p><em>Diese Datenschutzerklärung wurde mit Hilfe der activeMind AG erstellt.</em></p>
+        </div>
+    </div>
+
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -251,11 +377,47 @@
             });
         });
 
+        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeMobileMenuButton = document.getElementById('close-mobile-menu');
         mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); });
         closeMobileMenuButton.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
+
+        // Legal Modals Logic
+        const impressumToggle = document.getElementById('impressum-toggle');
+        const datenschutzToggle = document.getElementById('datenschutz-toggle');
+        const impressumModal = document.getElementById('impressum-modal');
+        const datenschutzModal = document.getElementById('datenschutz-modal');
+        const impressumClose = document.getElementById('impressum-close');
+        const datenschutzClose = document.getElementById('datenschutz-close');
+
+        impressumToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            impressumModal.classList.remove('hidden');
+        });
+        datenschutzToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            datenschutzModal.classList.remove('hidden');
+        });
+
+        impressumClose.addEventListener('click', () => {
+            impressumModal.classList.add('hidden');
+        });
+        datenschutzClose.addEventListener('click', () => {
+            datenschutzModal.classList.add('hidden');
+        });
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === impressumModal) {
+                impressumModal.classList.add('hidden');
+            }
+            if (e.target === datenschutzModal) {
+                datenschutzModal.classList.add('hidden');
+            }
+        });
+
     </script>
 </body>
 </html>
