@@ -34,6 +34,19 @@
         .modal-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
         .modal-content a { color: #3B82F6; text-decoration: underline; }
         .modal-content .generator_user_input { background-color: #f3f4f6; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid #e5e7eb; }
+        
+        /* Spinner for form submission */
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-left-color: #fff;
+            border-radius: 50%;
+            width: 1.25rem;
+            height: 1.25rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-neutral-lightgray">
@@ -74,7 +87,6 @@
                     Wir bauen für Ihren Betrieb eine eigene App, mit der Sie Angebote direkt aufs Handy Ihrer Kunden schicken, Bestellungen annehmen und Treue belohnen.
                 </p>
                 <p class="mb-4 text-lg text-white opacity-90">Herausfinden wie digital mein Betrieb ist?</p>
-                <!-- ANPASSUNG: Button-Klassen für bessere mobile Darstellung optimiert -->
                 <a href="#digital-check" class="bg-primary-green text-white font-bold py-3 px-6 rounded-full text-base sm:text-lg hover:bg-accent-yellow transition duration-300 transform hover:scale-105 shadow-lg inline-block">
                    Jetzt Digital-Stand meines Betriebs prüfen
                 </a>
@@ -168,7 +180,6 @@
                     </ul>
                 </div>
 
-               <!-- ANPASSUNG: Button-Klassen für bessere mobile Darstellung optimiert -->
                 <a href="[HIER_DEIN_TALLY_QUIZ_LINK_EINFÜGEN]" target="_blank" class="bg-primary-green text-white font-bold py-3 px-6 rounded-full text-base sm:text-lg hover:bg-accent-yellow transition duration-300 transform hover:scale-110 shadow-lg inline-block">
                     Meinen größten Engpass finden
                 </a>
@@ -183,8 +194,7 @@
                     <p class="text-lg text-gray-700 mb-8">
                         Wenn Sie das Quiz überspringen und direkt mit mir über Ihr Anliegen sprechen möchten, nutzen Sie einfach das Kontaktformular.
                     </p>
-                    <!-- ANPASSUNG: Formular mit form.taxi verbunden -->
-                    <form action="https://form.taxi/s/hg0pi5xx" method="POST" class="space-y-6 text-left">
+                    <form id="contact-form" action="https://form.taxi/s/hg0pi5xx" method="POST" class="space-y-6 text-left">
                         <div>
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
                             <input type="text" id="name" name="Name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-green" required>
@@ -198,8 +208,9 @@
                             <textarea id="message" name="Nachricht" rows="4" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-green" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="bg-primary-green text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-accent-yellow transition duration-300 transform hover:scale-105 shadow-lg">
-                                Nachricht senden
+                            <button id="submit-button" type="submit" class="bg-primary-green text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-accent-yellow transition duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center w-full">
+                                <span id="button-text">Nachricht senden</span>
+                                <span id="button-spinner" class="spinner hidden ml-3"></span>
                             </button>
                         </div>
                     </form>
