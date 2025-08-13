@@ -420,6 +420,21 @@
                 datenschutzModal.classList.add('hidden');
             }
         });
+        
+        // Form submission feedback
+        const contactForm = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const buttonText = document.getElementById('button-text');
+        const buttonSpinner = document.getElementById('button-spinner');
+
+        contactForm.addEventListener('submit', () => {
+            // Check if form is valid before showing spinner
+            if (contactForm.checkValidity()) {
+                submitButton.disabled = true;
+                buttonText.textContent = 'Wird gesendet...';
+                buttonSpinner.classList.remove('hidden');
+            }
+        });
 
     </script>
 </body>
