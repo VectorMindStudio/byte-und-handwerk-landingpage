@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich | byte & Handwerk</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'primary-green': '#15803d', 'secondary-blue': '#1d4ed8', 'accent-yellow': '#FBBF24', 'neutral-lightgray': '#F3F4F6', }, }, }, }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" defer>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; color: #111827; }
+    </style>
+</head>
+<body class="bg-neutral-lightgray flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-50">
+        <nav class="container mx-auto flex items-center">
+            <a href="index.html" class="flex items-center text-secondary-blue hover:text-primary-green hover:underline underline-offset-4 font-semibold transition duration-300">
+                <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Zurück zur Startseite
+            </a>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main" class="flex-grow pt-24">
+        <section id="ihr-lotse" aria-labelledby="partner-title" class="py-16 md:py-24 bg-neutral-lightgray">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 id="partner-title" class="text-4xl font-bold mb-4 text-gray-800">Ihr Partner mit Biss: Handwerk trifft Hightech.</h1>
+                    <p class="text-xl text-gray-700 mb-10 font-medium">Kein Berater-Blabla. Keine Experimente auf Ihre Kosten. Nur Lösungen, die im echten Alltag funktionieren.</p>
+                </div>
+                <div class="flex flex-wrap md:flex-nowrap items-center gap-12 max-w-6xl mx-auto">
+                    <div class="w-full md:w-1/2 text-lg leading-relaxed text-gray-700">
+                        <p class="mb-6">Ich komme selbst aus der Backstube. Ich habe klassisch Bäcker gelernt und weiß ganz genau, wie sich der harte Alltag und eine 60-Stunden-Woche im Betrieb anfühlen. In der Biotechnologie habe ich danach gelernt, was kompromisslose Präzision bedeutet. Meine anschließende Zeit im Vertrieb war dann die letzte fehlende Zutat: Dort habe ich gelernt, wie man Menschen wirklich erreicht, aber auch ganz klar für mich erkannt, dass ich keine Lust habe, Dinge künstlich überteuert zu verkaufen. Ich wollte etwas Eigenes aufbauen. Etwas Ehrliches, mit dem ich mich zu 100 % identifizieren kann und das handfeste Probleme löst. Aus genau diesem Antrieb heraus habe ich den Quereinstieg in die App-Entwicklung gemacht.</p>
+                        <p class="mb-6 font-bold text-gray-900">Heute bringe ich bei <span class="text-primary-green">byte & Handwerk</span> all diese praktischen Erfahrungen zusammen. Sie bekommen von mir keine hippen Agentur-Ideen, die im Stress an der Ladenkasse sofort zusammenbrechen. Sie bekommen stabile, durchdachte digitale Lösungen, die Ihnen wirklich den Rücken freihalten.</p>
+                        <blockquote class="bg-white p-4 rounded-lg border-l-4 border-primary-green mt-6 italic font-semibold text-xl text-gray-800">
+                            „Isch babbel dir nix vor. Isch mach's äfach. Fer disch un doi G'schäft, alla hopp!“
+                        </blockquote>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                         <!-- Hier ist dein eigenes Bild eingebunden -->
+                         <img src="Dominik Baki.png"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x600/1d4ed8/FFFFFF?text=Dominik+Baki'"
+                             alt="Dominik Baki - Gründer byte & Handwerk" 
+                             class="rounded-xl shadow-lg w-full h-auto object-cover" 
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modulares Laden: Footer -->
+    <div data-include="components/footer.html"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const includes = document.querySelectorAll('[data-include]');
+            Promise.all(Array.from(includes).map(el => {
+                const file = el.getAttribute('data-include');
+                return fetch(file).then(res => res.text()).then(data => el.outerHTML = data);
+            })).then(() => {
+                document.querySelectorAll('a[href^="#"]').forEach(a => {
+                    a.href = 'index.html' + a.getAttribute('href');
+                });
+                if (typeof tailwind !== 'undefined') {
+                    setTimeout(() => {
+                        document.body.style.display = 'none';
+                        document.body.offsetHeight;
+                        document.body.style.display = '';
+                    }, 50);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
