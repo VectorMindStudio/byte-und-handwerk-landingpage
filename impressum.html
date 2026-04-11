@@ -29,7 +29,6 @@
 </head>
 <body class="bg-neutral-lightgray flex flex-col min-h-screen">
 
-    <!-- Minimaler Header mit Zurück-Link -->
     <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-50">
         <nav class="container mx-auto flex items-center">
             <a href="index.html" class="flex items-center text-secondary-blue hover:text-primary-green hover:underline underline-offset-4 font-semibold transition duration-300">
@@ -38,35 +37,23 @@
         </nav>
     </header>
 
-    <main id="main-content" role="main" class="flex-grow container mx-auto px-6 pt-28 pb-16 max-w-3xl">
+    <main id="main-content" role="main" class="flex-grow container mx-auto px-6 pt-28 pb-16 max-w-4xl">
         <div class="bg-white p-8 md:p-12 rounded-xl shadow-sm border border-gray-200">
             <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 border-b pb-4">Impressum</h1>
             
-            <h2 class="text-xl font-bold mt-8 mb-4 text-gray-800">Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-                <p class="mb-1"><strong>Dominik Baki</strong></p>
-                <p class="mb-1">byte &amp; Handwerk</p>
-                <p class="mb-1">Alsenweg 64</p>
-                <p class="mb-0">68305 Mannheim</p>
+            <!-- IT-Recht Kanzlei iFrame Embed -->
+            <div class="w-full">
+                <iframe 
+                    src="https://itrk.legal/1xK3.0.16RT-de-iframe.html" 
+                    class="w-full min-h-[800px] border-none" 
+                    title="Impressum der IT-Recht Kanzlei"
+                    loading="lazy">
+                </iframe>
             </div>
 
-            <h2 class="text-xl font-bold mt-8 mb-4 text-gray-800">Kontakt</h2>
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-                <p class="mb-2"><strong>Telefon:</strong> 0621 437 550 44</p>
-                <p class="mb-0"><strong>E-Mail:</strong> <a href="mailto:info@byteundhandwerk.de" class="text-secondary-blue hover:underline">info@byteundhandwerk.de</a></p>
-            </div>
-
-            <h2 class="text-xl font-bold mt-8 mb-4 text-gray-800">Hinweise zur Website</h2>
-            
-            <h3 class="text-lg font-semibold mt-6 mb-2 text-gray-800">Urheberrechtliche Hinweise</h3>
-            <p class="mb-4 text-gray-700">Logo & Corporate Design: Dominik Baki<br>Verwendete Icons: Font Awesome (SIL Open Font License 1.1)</p>
-            
-            <h3 class="text-lg font-semibold mt-6 mb-2 text-gray-800">Verantwortlich für journalistisch-redaktionelle Inhalte</h3>
-            <p class="mb-4 text-gray-700">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>Dominik Baki<br>Alsenweg 64<br>68305 Mannheim</p>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 rounded-t-xl shadow-inner mt-auto" role="contentinfo">
         <div class="container mx-auto text-center text-sm">
             <p>&copy; 2026 byte & Handwerk. Alle Rechte vorbehalten.</p>
