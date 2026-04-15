@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung | byte & Handwerk</title>
     
+    <!-- USERCENTRICS COOKIE TOOL -->
+    <link rel="dns-prefetch" href="//app.usercentrics.eu" />
+    <link rel="dns-prefetch" href="//api.usercentrics.eu" />
+    <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
+    <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+    <script id="usercentrics-cmp" data-eu-mode="true" data-settings-id="vC1A9YPEa2XgYq" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js" async></script>
+    <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+    <!-- ENDE USERCENTRICS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,23 +25,17 @@
                         'accent-yellow': '#FBBF24',
                         'neutral-lightgray': '#F3F4F6',
                     },
+                    fontFamily: {
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                    }
                 },
             },
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" defer>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; color: #111827; }
+        body { color: #111827; }
         :focus-visible { outline: 3px solid #FBBF24; outline-offset: 4px; border-radius: 2px; }
-        /* Vereinfachte Text-Formatierung für Rechtstexte */
-        .legal-text h2 { font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #1f2937; }
-        .legal-text h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #374151; }
-        .legal-text h4 { font-size: 1rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: #4b5563; }
-        .legal-text p { margin-bottom: 1rem; color: #4b5563; line-height: 1.6; }
-        .legal-text ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; color: #4b5563; }
-        .legal-text li { margin-bottom: 0.5rem; }
-        .legal-text a { color: #1d4ed8; text-decoration: underline; }
     </style>
 </head>
 <body class="bg-neutral-lightgray flex flex-col min-h-screen">
@@ -61,16 +64,25 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 rounded-t-xl shadow-inner mt-auto" role="contentinfo">
-        <div class="container mx-auto text-center text-sm">
-            <p>&copy; 2026 byte & Handwerk. Alle Rechte vorbehalten.</p>
-            <div class="mt-4 space-x-4">
-                <a href="impressum.html" class="hover:text-accent-yellow hover:underline transition duration-300">Impressum</a>
-                <a href="datenschutz.html" class="hover:text-accent-yellow hover:underline transition duration-300">Datenschutz</a>
-                <a href="agb.html" class="hover:text-accent-yellow hover:underline transition duration-300">AGB</a>
-            </div>
-        </div>
-    </footer>
+    <!-- Modulares Laden: Footer -->
+    <div data-include="components/footer.html"></div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const includes = document.querySelectorAll('[data-include]');
+            Promise.all(Array.from(includes).map(el => {
+                const file = el.getAttribute('data-include');
+                return fetch(file).then(res => res.text()).then(data => el.outerHTML = data);
+            })).then(() => {
+                if (typeof tailwind !== 'undefined') {
+                    setTimeout(() => {
+                        document.body.style.display = 'none';
+                        document.body.offsetHeight;
+                        document.body.style.display = '';
+                    }, 50);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

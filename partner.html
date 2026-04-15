@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über mich | byte & Handwerk</title>
     
+    <!-- USERCENTRICS COOKIE TOOL -->
+    <link rel="dns-prefetch" href="//app.usercentrics.eu" />
+    <link rel="dns-prefetch" href="//api.usercentrics.eu" />
+    <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
+    <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+    <script id="usercentrics-cmp" data-eu-mode="true" data-settings-id="vC1A9YPEa2XgYq" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js" async></script>
+    <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+    <!-- ENDE USERCENTRICS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { 'primary-green': '#15803d', 'secondary-blue': '#1d4ed8', 'accent-yellow': '#FBBF24', 'neutral-lightgray': '#F3F4F6', }, }, }, }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#15803d',
+                        'secondary-blue': '#1d4ed8',
+                        'accent-yellow': '#FBBF24',
+                        'neutral-lightgray': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                    }
+                },
+            },
+        }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" defer>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; color: #111827; }
+        body { color: #111827; }
+        :focus-visible { outline: 3px solid #FBBF24; outline-offset: 4px; border-radius: 2px; }
     </style>
 </head>
 <body class="bg-neutral-lightgray flex flex-col min-h-screen">
@@ -41,7 +64,6 @@
                         </blockquote>
                     </div>
                     <div class="w-full md:w-1/2">
-                         <!-- Hier ist dein eigenes Bild eingebunden -->
                          <img src="Dominik Baki.png"
                              onerror="this.onerror=null;this.src='https://placehold.co/600x600/1d4ed8/FFFFFF?text=Dominik+Baki'"
                              alt="Dominik Baki - Gründer byte & Handwerk" 
@@ -63,9 +85,6 @@
                 const file = el.getAttribute('data-include');
                 return fetch(file).then(res => res.text()).then(data => el.outerHTML = data);
             })).then(() => {
-                document.querySelectorAll('a[href^="#"]').forEach(a => {
-                    a.href = 'index.html' + a.getAttribute('href');
-                });
                 if (typeof tailwind !== 'undefined') {
                     setTimeout(() => {
                         document.body.style.display = 'none';
