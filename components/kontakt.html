@@ -1,4 +1,4 @@
-<section id="kontakt" aria-labelledby="contact-title" class="py-16 md:py-24 bg-white">
+<section id="kontakt" aria-labelledby="contact-title" class="py-16 md:py-24 bg-white border-t border-gray-100">
     <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 id="contact-title" class="text-3xl font-bold text-center mb-4 text-gray-800">Lieber direkt Klartext reden?</h2>
@@ -6,13 +6,22 @@
                 Sie möchten den Digital-Check überspringen und gleich zur Sache kommen? Kein Problem. Suchen Sie sich hier einfach einen passenden Termin für ein kurzes 15-Minuten-Kennenlernen aus. Wir besprechen direkt und ohne Umwege, wo in Ihrem Betrieb aktuell der Schuh drückt.
             </p>
             
-            <!-- Cal element-click embed button -->
-            <button data-cal-link="byteundhandwerk/kennenlernen" 
-                    data-cal-namespace="kennenlernen" 
-                    data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' 
-                    class="bg-secondary-blue text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-blue-800 transition duration-300 transform hover:scale-105 shadow-xl inline-block cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-accent-yellow">
-                <i class="far fa-calendar-alt mr-2" aria-hidden="true"></i> Jetzt Termin auswählen
-            </button>
+            <!-- Cal.com iFrame Embed (DSGVO MANUELL GEBLOCKT ÜBER "Calendly") -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2 md:p-4 w-full max-w-4xl mx-auto relative min-h-[600px] flex items-center justify-center bg-gray-50">
+                
+                <!-- Hinweis-Text -->
+                <p class="absolute text-center text-gray-500 px-4 z-0">
+                    Bitte akzeptieren Sie die Cookies für die <strong>Terminbuchung (Calendly)</strong> im Cookie-Banner unten links, um den Kalender zu laden.
+                </p>
+
+                <!-- Das eigentliche iFrame - Hört jetzt auf den "Calendly" Schalter -->
+                <iframe 
+                    data-src="https://cal.com/byteundhandwerk/kennenlernen" 
+                    data-usercentrics="Calendly"
+                    style="width: 100%; height: 600px; border: none; position: relative; z-index: 10;" 
+                    title="Terminbuchung Kennenlernen">
+                </iframe>
+            </div>
             
         </div>
     </div>
